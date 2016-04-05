@@ -10,7 +10,7 @@ umask 002
 # We only want xdebug in specific circumstances so it's better to opt-in when we need it
 if [ -n "$ENABLE_XDEBUG" ]; then
   # Install and configure Xdebug
-  pecl install xdebug
+  RUN pecl install xdebug
     && docker-php-ext-enable xdebug \
     && sed -i '1 a xdebug.remote_autostart=true' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && sed -i '1 a xdebug.remote_mode=req' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
@@ -21,5 +21,5 @@ if [ -n "$ENABLE_XDEBUG" ]; then
     && sed -i '1 a xdebug.remote_enable=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 fi
 
-# Run php-fpm
-php-fpm
+# run CMD
+eval "${@}"
