@@ -17,7 +17,8 @@ RUN docker-php-ext-install pdo_mysql mbstring opcache \
     && pecl install memcached \
     && docker-php-ext-enable memcached
 
-RUN apt-get install ruby-full -y &&  gem update && gem install sass && gem install compass && gem install bless
+# Any more gem's should only be installed through bundler
+RUN apt-get install ruby-full -y &&  gem update && gem install sass
 RUN apt-get install  libgmp-dev -y
  
 RUN pecl install xdebug \
