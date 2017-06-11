@@ -15,8 +15,8 @@ RUN apt-get update && \
 
 RUN mkdir ~/opencv
 
-RUN cd ~/opencv && git clone https://github.com/Itseez/opencv_contrib.git && cd opencv_contrib && git checkout 3.0.0
-RUN cd ~/opencv && git clone https://github.com/Itseez/opencv.git && cd opencv && git checkout 3.0.0
+RUN cd ~/opencv && git clone https://github.com/opencv/opencv_contrib.git && cd opencv_contrib && git checkout 3.0.0
+RUN cd ~/opencv && git clone https://github.com/opencv/opencv.git && cd opencv && git checkout 3.0.0
 
 RUN cd ~/opencv/opencv && mkdir release && cd release && \
           cmake -D CMAKE_BUILD_TYPE=RELEASE \
